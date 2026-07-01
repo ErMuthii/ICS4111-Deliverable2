@@ -1,20 +1,21 @@
 # ICS 4111: Embedded Systems & IoT
 ## Semester Project — Deliverable 2
-### *Prototyping Embedded Devices*
 
 ---
 
-| Field | Details |
-|---|---|
-| **Course** | ICS 4111: Embedded Systems & IoT |
-| **Deliverable** | 2 — Develop Prototypes of Embedded Devices |
-| **Semester** | April – July 2026 |
-| **Group Name** | _(insert group name)_ |
-| **Members** | _(Name 1 — Reg. No.)_, _(Name 2 — Reg. No.)_, _(Name 3 — Reg. No.)_ |
-| **Submission Date** | _(insert date)_ |
-| **GitHub Repo** | [_(insert repo link)_](https://github.com/) |
+**Group 4 — The Tinkers**
+
+| No. | Student No. | Name                     |
+| --- | ----------- | ------------------------ |
+| 1   | 166263      | Waruhiu Jeremy Kang'ethe |
+| 2   | 166390      | Muthii Eric Macharia     |
+| 3   | 168656      | Deborah Rehana           |
+| 4   | 166914      | Murega Kelvin Mutwiri    |
+| 5   | 161492      | Sayialel Eric Lenina     |
+| 6   | 167144      | Andrew Karanja Gathirwa  |
 
 ---
+
 
 ## Table of Contents
 
@@ -59,13 +60,13 @@ This deliverable presents four embedded system prototypes built from the schemat
 
 **Breadboard / Circuit Assembly**
 
-![Architecture A — Breadboard setup](images/arch_a_physical_breadboard.jpg)
-> *Replace with your photo. Ensure the ESP32, MQ-5, DHT22, and LCD are clearly visible.*
+![Architecture A — Breadboard setup](images/proja.jpeg)
+
 
 **LCD Output**
 
-![Architecture A — LCD displaying temperature, humidity, and gas readings](images/arch_a_lcd_output.jpg)
-> *Replace with your photo. Show the LCD displaying live sensor data.*
+![Architecture A — LCD displaying temperature, humidity, and gas readings](images/projar.jpeg)
+
 
 **IDE / Serial Monitor Output**
 
@@ -83,7 +84,7 @@ This deliverable presents four embedded system prototypes built from the schemat
 
 ## Architecture A — Simulation
 
-**Wokwi Project Link:** [_(insert public Wokwi link here)_](https://wokwi.com/projects/)
+**Wokwi Project Link:** [https://wokwi.com/projects/468175968189334529](https://wokwi.com/projects/468175968189334529)
 
 > The MQ-5 is simulated using a potentiometer connected to GPIO 34. Rotating the dial changes the analog reading, simulating varying gas concentrations.
 
@@ -98,13 +99,8 @@ sim_a/
 
 ### Simulation Screenshot
 
-![Architecture A — Wokwi simulation running](images/arch_a_wokwi_screenshot.png)
-> *Replace with a screenshot of your Wokwi project showing the circuit and running simulation.*
+![Architecture A — Wokwi simulation running](images/sim2.png)
 
-**Wokwi Serial Monitor Output**
-
-![Architecture A — Wokwi serial monitor output](images/arch_a_wokwi_serial.png)
-> *Replace with a screenshot of the Wokwi serial monitor showing sensor output.*
 
 ### Key Code Logic (Architecture A)
 
@@ -160,28 +156,8 @@ lcd.print(" "); lcd.print(gasLabel);
 
 **Full Assembly — Both ESP32 Nodes**
 
-![Architecture B — Both ESP32 nodes assembled on breadboard](images/arch_b_physical_full.jpg)
-> *Replace with your photo showing both ESP32 boards connected.*
+![Architecture B — Both ESP32 nodes assembled on breadboard](images/projb.jpeg)
 
-**Node 1 — ESP32 with MQ-5**
-
-![Architecture B — Node 1 (MQ-5 side)](images/arch_b_node1_mq5.jpg)
-> *Replace with your photo of Node 1.*
-
-**Node 2 — ESP32 with DHT22**
-
-![Architecture B — Node 2 (DHT22 side)](images/arch_b_node2_dht22.jpg)
-> *Replace with your photo of Node 2.*
-
-**Serial Monitor — Node 1 Output**
-
-![Architecture B — Node 1 serial output](images/arch_b_node1_serial.png)
-> *Replace with a screenshot of Node 1's Arduino IDE Serial Monitor.*
-
-**Serial Monitor — Node 2 Output**
-
-![Architecture B — Node 2 serial output](images/arch_b_node2_serial.png)
-> *Replace with a screenshot of Node 2's Arduino IDE Serial Monitor.*
 
 ### Observations
 
