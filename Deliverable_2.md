@@ -1,7 +1,7 @@
 # ICS 4111: Embedded Systems & IoT
 ## Semester Project — Deliverable 2
 
----
+
 
 **Group 4 — The Tinkers**
 
@@ -84,9 +84,9 @@ This deliverable presents four embedded system prototypes built from the schemat
 
 ## Architecture A — Simulation
 
-**Wokwi Project Link:** [https://wokwi.com/projects/468175968189334529](https://wokwi.com/projects/468175968189334529)
+**Wokwi Project Link:** [https://wokwi.com/projects/468340856334884865](https://wokwi.com/projects/468340856334884865)
 
-> The MQ-5 is simulated using a potentiometer connected to GPIO 34. Rotating the dial changes the analog reading, simulating varying gas concentrations.
+> The MQ-5 is replaced with the MQ-2 gas sensor since the MQ-5 is not available.
 
 ### Simulation Files
 
@@ -172,36 +172,27 @@ lcd.print(" "); lcd.print(gasLabel);
 
 **Configuration:** 1× ESP32 (DHT22 + Relay) ↔ 1× ESP32 (MQ-5) via UART
 
-**Wokwi Project Link — Node 1 (DHT22 + Relay):** [_(insert public Wokwi link here)_](https://wokwi.com/projects/)
+**Wokwi Project Link — Both nodes combined:** [https://wokwi.com/projects/468156423093139457](https://wokwi.com/projects/468156423093139457)
 
-**Wokwi Project Link — Node 2 (MQ-5):** [_(insert public Wokwi link here)_](https://wokwi.com/projects/)
+**Wokwi Project Link — Node 1 (DHT22 + Relay):** [https://wokwi.com/projects/468344811070287873](hhttps://wokwi.com/projects/468344811070287873)
 
-> **Multi-MCU Note:** Wokwi's web editor supports a single active firmware per project. Architecture C is therefore submitted as two linked Wokwi projects (one per node) that form a complete system. The `diagram.json` in this repo contains both ESP32s in one diagram for reference — use Wokwi CLI with pre-compiled firmware to run both simultaneously in one project.
+**Wokwi Project Link — Node 2 (MQ-5):** [https://wokwi.com/projects/468345066554806273](https://wokwi.com/projects/468345066554806273)
+
+> **Multi-MCU Note:** Wokwi's web editor supports a single active firmware per project. Architecture C is therefore submitted as two linked Wokwi projects (one per node) that form a complete system. But we have included a wokwi diagram that shows the uart connection even if the code does not run.
 
 ### System Diagram (Logical)
 
 ```
-┌─────────────────────┐          UART2 (9600 baud)          ┌─────────────────────┐
-│  ESP32 NODE 1       │ ◄──────────────────────────────────► │  ESP32 NODE 2       │
+┌─────────────────────┐          UART2 (9600 baud)           ┌─────────────────────┐
+│  ESP32 NODE 1       │ ◄──────────────────────────────────► |  ESP32 NODE 2       │
 │                     │  TX(GPIO17) ──► RX(GPIO16)           │                     │
-│  ● DHT22 → GPIO4   │  RX(GPIO16) ◄── TX(GPIO17)           │  ● MQ-5 → GPIO34   │
-│  ● Relay → GPIO26  │                                        │                     │
-└─────────────────────┘                                        └─────────────────────┘
+│  ● DHT22 → GPIO4    | RX(GPIO16) ◄── TX(GPIO17)            | ● MQ-5 → GPIO34     |
+│  ● Relay → GPIO26   |                                      |                     │
+└─────────────────────┘                                      └─────────────────────┘
          │
     Relay NO ──► ESP32 #2 EN pin  (relay can power-cycle Node 2)
 ```
 
-### Simulation Files
-
-```
-sim_c/
-├── esp32_node1/
-│   └── sketch.ino      ← Node 1: DHT22 + Relay logic
-├── esp32_node2/
-│   └── sketch.ino      ← Node 2: MQ-5 reader
-├── diagram.json        ← Combined Wokwi circuit (both ESP32s)
-└── wokwi.toml          ← Library config & multi-MCU setup notes
-```
 
 ### Relay Activation Logic (Node 1)
 
@@ -213,25 +204,31 @@ sim_c/
 
 ### Simulation Screenshots
 
+**Node 1 — Wokwi Project Both ESPs connected via UART**
+
+![Architecture C — Both ESPs connected via UART](images/sim1.png)
+
+
+
 **Node 1 — Wokwi Project (DHT22 + Relay)**
 
-![Architecture C — Node 1 Wokwi simulation](images/arch_c_node1_wokwi.png)
-> *Replace with a screenshot of the Node 1 Wokwi project running.*
+![Architecture C — Node 1 Wokwi simulation](images/sim1.1.png)
+
 
 **Node 1 — Serial Monitor Output**
 
-![Architecture C — Node 1 serial output](images/arch_c_node1_serial.png)
-> *Replace with a screenshot of Node 1's Wokwi serial monitor.*
+![Architecture C — Node 1 serial output](images/sim1.1.1.png)
+
 
 **Node 2 — Wokwi Project (MQ-5)**
 
-![Architecture C — Node 2 Wokwi simulation](images/arch_c_node2_wokwi.png)
-> *Replace with a screenshot of the Node 2 Wokwi project running.*
+![Architecture C — Node 2 Wokwi simulation](images/sim1.2.png)
+
 
 **Node 2 — Serial Monitor Output**
 
-![Architecture C — Node 2 serial output](images/arch_c_node2_serial.png)
-> *Replace with a screenshot of Node 2's Wokwi serial monitor.*
+![Architecture C — Node 2 serial output](images/sim1.2.1.png)
+
 
 ### Key Code Logic (Architecture C)
 
@@ -272,31 +269,12 @@ if (Serial2.available()) {
 
 ## Evidence of Group Work
 
-### Task Allocation
-
-| Task | Assigned To | Status |
-|---|---|---|
-| Architecture A — Physical build | _(Name)_ | ✅ Complete |
-| Architecture A — Wokwi simulation | _(Name)_ | ✅ Complete |
-| Architecture B — Physical build (Node 1) | _(Name)_ | ✅ Complete |
-| Architecture B — Physical build (Node 2) | _(Name)_ | ✅ Complete |
-| Architecture C — Wokwi simulation | _(Name)_ | ✅ Complete |
-| Markdown documentation | _(Name)_ | ✅ Complete |
 
 ### Group Meeting / Collaboration Evidence
 
-![Group meeting / collaboration screenshot 1](images/groupwork_meeting.jpg)
-> *Replace with a photo or screenshot of a group meeting, WhatsApp chat, or shared document showing collaboration.*
+![Group meeting / collaboration screenshot 1](images/group.jpeg)
 
-![Group meeting / collaboration screenshot 2](images/groupwork_chat.png)
-> *Replace with additional evidence (e.g., GitHub commit history showing contributions from all members).*
 
-**GitHub Contribution Graph**
-
-![GitHub contribution graph showing all members](images/github_contributions.png)
-> *Replace with a screenshot of the GitHub Insights → Contributors graph for your repo.*
-
----
 
 ## Libraries Used
 
