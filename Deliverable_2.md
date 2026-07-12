@@ -70,8 +70,8 @@ This deliverable presents four embedded system prototypes built from the schemat
 
 **IDE / Serial Monitor Output**
 
-![Architecture A — Serial Monitor output in Arduino IDE](images/arch_a_serial_monitor.png)
-> *Replace with a screenshot of your Arduino IDE Serial Monitor showing sensor readings.*
+![Architecture A — Serial Monitor output in Arduino IDE](images/mon.jpeg)
+
 
 ### Observations
 
